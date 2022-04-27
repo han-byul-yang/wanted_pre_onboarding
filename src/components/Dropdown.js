@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
@@ -87,11 +87,9 @@ export default function Dropdown() {
 
   const words = ['red', 'yellow', 'green', 'blue', 'brown', 'purple', 'pink', 'black']
 
-  const onClick = useCallback(
-    () => {
-      toggle ? setToggle(false) : setToggle(true)
-    }, [toggle])
-
+  const onClick = () => {
+    toggle ? setToggle(false) : setToggle(true)
+  }
 
   return (
     <Form>

@@ -66,10 +66,11 @@ export default function Input() {
     const emailval = e.target.value
     setEmail(emailval)
     setValid(true)
-    if ((/([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/).test(emailval)){
+    if ((/([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/).test(emailval)) {
       setChecking(true)
     } else {
-      setChecking(false)}
+      setChecking(false)
+    }
   }
 
   const checkValid = () => {
@@ -79,7 +80,6 @@ export default function Input() {
   const toggleEye = () => {
     show ? setShow(false) : setShow(true)
   }
-
 
   return (
     <Form>
@@ -97,4 +97,3 @@ export default function Input() {
     </Form>
   )
 }
-//정규표현식 확인

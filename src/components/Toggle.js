@@ -47,11 +47,11 @@ right: 0;
 font-weight: bold;
 cursor: pointer;`
 
-export default function Toggle () {
+export default function Toggle() {
   const [tabState, setTabState] = useState('basic')
   const targetBasic = useRef()
   const targetDetail = useRef()
-  
+
   const clickTab = (target) => {
     if (target === targetBasic) {
       target.current.style.color = 'black'
@@ -62,14 +62,14 @@ export default function Toggle () {
       targetBasic.current.style.color = 'gray'
       setTabState('detail')
     }
-    }
+  }
 
   return (
     <Form>
       <Box>
-      <Bar status={tabState}></Bar>
-      <TabOne ref={targetBasic} onClick={() => clickTab(targetBasic)}>기본</TabOne>
-      <TabTwo ref={targetDetail} onClick={() => clickTab(targetDetail)}>상세</TabTwo>
+        <Bar status={tabState}></Bar>
+        <TabOne ref={targetBasic} onClick={() => clickTab(targetBasic)}>기본</TabOne>
+        <TabTwo ref={targetDetail} onClick={() => clickTab(targetDetail)}>상세</TabTwo>
       </Box>
     </Form>
   )

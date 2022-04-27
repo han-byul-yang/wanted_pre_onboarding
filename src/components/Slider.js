@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 const Box = styled.div`
@@ -94,7 +94,7 @@ border-radius: 50%;
 position: absolute;;
 z-index: 4;
 top: 0;
-left: ${props => props.inputcss && `calc(calc(22rem/99)*${props.inputcss-1})`};
+left: ${props => props.inputcss && `calc(calc(22rem/99)*${props.inputcss - 1})`};
 `
 const MoveBtn = styled.div`
 position: absolute;
@@ -108,7 +108,7 @@ background: #42b883;
 cursor: pointer;
 `
 const Bar = styled.div`
-width: ${props => props.inputcss && `calc(calc(22rem/99)*${props.inputcss-1})`};
+width: ${props => props.inputcss && `calc(calc(22rem/99)*${props.inputcss - 1})`};
 height: 6px;
 background: #42b883;
 border-radius: 3px;
@@ -138,42 +138,40 @@ transition: all 0.4s;
 background: #42b883;
 }`
 
-export default function Slider () {
+export default function Slider() {
   const [percentValue, setPercentValue] = useState(1)
+  const percentList = [1, 25, 50, 75, 100]
 
-  const onClick = (num) => {
+  const percentClick = (num) => {
     setPercentValue(num)
   }
+
+  const nowState = useCallback(
+    (state) => {
+      return state <= percentValue
+    }, [percentValue])
 
   return (
     <Box>
       <Contain>
-      <Board>
-        <Value>{percentValue}</Value>
-        <Percentage>%</Percentage>
-      </Board>
-      <Slide onInput={() => setPercentValue(percentValue)}>
-        <Range type="range" min="1" max="100" value={percentValue} onChange={(e) => setPercentValue(e.target.value)}></Range>
-        <RangeBar></RangeBar>
-        <CircleLine>
-        <Circle state={1 <= percentValue}></Circle>
-        <Circle state={25 <= percentValue}></Circle>
-        <Circle state={50 <= percentValue}></Circle>
-        <Circle state={75 <= percentValue}></Circle>
-        <Circle state={100 <= percentValue}></Circle>
-        </CircleLine>
-        <Selector inputcss={percentValue}>
-          <MoveBtn></MoveBtn>
-        </Selector>
-        <Bar inputcss={percentValue}></Bar>
-      </Slide>
-      <PercentBox>
-      <Percent onClick={() => onClick(1)}>1%</Percent>
-      <Percent onClick={() => onClick(25)}>25%</Percent>
-      <Percent onClick={() => onClick(50)}>50%</Percent>
-      <Percent onClick={() => onClick(75)}>75%</Percent>
-      <Percent onClick={() => onClick(100)}>100%</Percent>
-      </PercentBox>
+        <Board>
+          <Value>{percentValue}</Value>
+          <Percentage>%</Percentage>
+        </Board>
+        <Slide onInput={() => setPercentValue(percentValue)}>
+          <Range type="range" min="1" max="100" value={percentValue} onChange={(e) => setPercentValue(e.target.value)}></Range>
+          <RangeBar></RangeBar>
+          <CircleLine>
+            {percentList.map((percent) => <Circle state={() => nowState(percent)} />)}
+          </CircleLine>
+          <Selector inputcss={percentValue}>
+            <MoveBtn></MoveBtn>
+          </Selector>
+          <Bar inputcss={percentValue}></Bar>
+        </Slide>
+        <PercentBox>
+          {percentList.map((percent) => <Percent onClick={() => percentClick(percent)}>{percent}%</Percent>)}
+        </PercentBox>
       </Contain>
     </Box>
   )
