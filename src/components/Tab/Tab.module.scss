@@ -1,0 +1,61 @@
+$GRAY: #757a79;
+$BACKGROUND: #347474;
+$BLACK: #233142;
+
+@mixin bar {
+  position: absolute;
+  width: calc(100% / 3);
+  height: 3px;
+  background: $BACKGROUND;
+  transition: all 0.3s;
+}
+
+.box {
+  position: relative;
+  width: 25rem;
+  height: 4.2rem;
+  background: whitesmoke;
+}
+
+.tabs {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 2.2rem;
+  padding-top: 1rem;
+}
+
+.tab {
+  width: calc(100% / 3);
+  height: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  color: $GRAY;
+  text-align: center;
+  cursor: pointer;
+}
+
+.act {
+  color: $BLACK;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  margin-top: 10px;
+  background: #d9dad7;
+}
+
+$MAP: (
+  first: 0,
+  second: 1,
+  third: 2
+);
+
+@each $k, $v in $MAP {
+  .bar#{$k} {
+    @include bar;
+    left: calc(100% / 3) * $v;
+  }
+}

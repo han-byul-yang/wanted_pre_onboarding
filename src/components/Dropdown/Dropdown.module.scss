@@ -1,0 +1,87 @@
+$GRAY: #757a79;
+$BACKGROUND: #f4f4f4;
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  height: auto;
+  min-height: 20rem;
+  padding-bottom: 10px;
+  background: $BACKGROUND;
+}
+
+.topForm {
+  position: relative;
+  box-sizing: border-box;
+  width: 14.7rem;
+  height: auto;
+  min-height: 19rem;
+  margin-top: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 2.3rem;
+  padding-left: 20px;
+  font-weight: bold;
+  color: $GRAY;
+  cursor: pointer;
+  border: #9ba6a5 1px solid;
+  border-radius: 5px;
+}
+
+.carnetDownIcon {
+  position: absolute;
+  right: 23px;
+}
+
+.dropForm {
+  width: 100%;
+  margin-top: 0.2rem;
+  border: 1px solid $GRAY;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 40%);
+}
+
+.input {
+  width: 12.3rem;
+  height: 2.2rem;
+  padding-left: 35px;
+  background: $BACKGROUND;
+  border: none;
+  outline: none;
+}
+
+.magnifyingGlassIcon {
+  position: absolute;
+  top: 50px;
+  margin-left: 10px;
+  color: $GRAY;
+}
+
+.dropWords {
+  border: none;
+  border-top: 1px solid $GRAY;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.5rem;
+  font-weight: bold;
+  color: $GRAY;
+  cursor: pointer;
+  background: $BACKGROUND;
+
+  :hover {
+    background: $BACKGROUND;
+  }
+}

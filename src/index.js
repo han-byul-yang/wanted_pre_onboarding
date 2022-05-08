@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client'
 import './styles/index.scss'
 import Routes from './routes'
 import reportWebVitals from './reportWebVitals'
+import Tab from './components/Tab/Tab'
+import Toggle from './components/Toggle/Toggle'
+import Dropdown from './components/Dropdown/Dropdown'
+import Input from './components/Input/Input'
+import Slider from './components/Slider/Slider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <Routes />
+    <Tab />
+    <br />
+    <Toggle />
+    <br />
+    <Dropdown />
+    <br />
+    <Input />
+    <br />
+    <Slider />
   </React.StrictMode>
 )
 
