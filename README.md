@@ -1,4 +1,7 @@
 # 원티드 프리온보딩 코스
+## 원티드 프리온보딩 5월 8일 린트활용 과제 수정 url
+https://github.com/han-byul-yang/wanted_pre_onboarding_update
+
 ## Toggle
 ### 구현 방법 및 이유 
 > activate된 tab의 요소를 DOM에서 직접 가져와 색상을 바꿔주기 위해 react useRef Hook를 사용하였습니다. 두 개의 tab 밖에 없어 직접 activate 색상을 각각 달리 지정해주었습니다. 현재 activate된 tab 요소를 state에 저장하여 styled components에서 좌측에서 요소가 떨어진 정도를 달리하여 움직임을 구현하였습니다.  
